@@ -1,4 +1,5 @@
-QIIME2 workflow - determining Amplicon Sequence Variants
+#QIIME2 workflow - determining Amplicon Sequence Variants  
+
 **Updated 11/24/2018 - Sarah Hu**
 
 This protocol is specific to analyzing microbial eukaryotic diversity by way of 18S rRNA gene tag sequencing. Here, we use [V4 Stoeck et al. 2010 primers](https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1365-294X.2009.04480.x). The product is an approximately 400 bp region. [more](https://onlinelibrary.wiley.com/doi/full/10.1111/jeu.12217). Workflow below uses version 8 of QIIME 2. 
@@ -105,7 +106,7 @@ qiime tools import \
 
 ```
 
-### Remove primers
+## Remove primers
 Below script is specific for using Stoeck et al. V4 primers. Make sure to change the '--p-front-f' and '--p-front-r' input sequences if you're using other primers.  
 
 * See [instructions](https://docs.qiime2.org/2018.8/plugins/available/cutadapt/trim-paired/)
@@ -123,7 +124,7 @@ qiime cutadapt trim-paired \
 	--o-trimmed-sequences paired-end-demux-trimmed.qza
 ```
 
-## Visualize how many reads have been removed so far:
+### Visualize how many reads have been removed so far:
 ```
 # Generate the '.qzv' visual file from your '.qza' file.
 ## Original
@@ -143,11 +144,8 @@ qiime_2_ll_quick_viewer --filename paired-end-demux-trimmed.qzv
 
 The output '.qza' (QIIME artifact) will be used directly for dada2 ASV calling (see below) or will require additional QC steps (directly below) for other OTU clustering approaches.
 
-```
 
 ## Amplicon Sequence Variants (ASVs)
-
-## Determine ASVs:
 
 See [DADA2](https://docs.qiime2.org/2018.8/plugins/available/dada2/?highlight=dada2)
 * Denoises PE sequences
