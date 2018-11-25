@@ -205,9 +205,9 @@ qiime metadata tabulate \
 qiime_2_ll_quick_viewer --filename [xxx].qzv
 ```
 **What to expect from visualizations:**
-* asv_table.qzv : Give you a good breakdown of ASV output stats, i.e. how many features you have and the total frequency per sample or feature (versions of rarefaction and rank abundance plots). This interactive viewer is great in that on th second tab "Interactive Sample Detail", you can play around with sampling depth, i.e. if I assume 100,000 sequences as a base sampling depth, how many sequences do I retain? and in how many samples? The third tab, lists stats by feature, where you can see the ASV that occurred in the highest frequency, and see how many samples it appeared in. Or you can list by how many ASVs appeared in however many samples.
-* rep-seqs.qzv : Lists the "featureID" which is a unique series of numbers and letters that is a code for what the ASV is called and then a sequence that represents that ASV, use this to download a fasta file. ALSO keep this file, you can use this to call new ASVs, but incorporate with this data. So, obviously, this would be super great to include in your supplementary data for your paper you should go write now. ALSO, you can click on each sequence and go to BLAST report page. 
-* stats-dada2.qzv : delimited file available to download that lists each sample and how many sequences have been removed at each step, filtering, denoising, merging, and chimera-removal.
+* *asv_table.qzv*: Give you a good breakdown of ASV output stats, i.e. how many features you have and the total frequency per sample or feature (versions of rarefaction and rank abundance plots). This interactive viewer is great in that on th second tab "Interactive Sample Detail", you can play around with sampling depth, i.e. if I assume 100,000 sequences as a base sampling depth, how many sequences do I retain? and in how many samples? The third tab, lists stats by feature, where you can see the ASV that occurred in the highest frequency, and see how many samples it appeared in. Or you can list by how many ASVs appeared in however many samples.
+* *rep-seqs.qzv*: Lists the "featureID" which is a unique series of numbers and letters that is a code for what the ASV is called and then a sequence that represents that ASV, use this to download a fasta file. ALSO keep this file, you can use this to call new ASVs, but incorporate with this data. So, obviously, this would be super great to include in your supplementary data for your paper you should go write now. ALSO, you can click on each sequence and go to BLAST report page. 
+* *stats-dada2.qzv*: delimited file available to download that lists each sample and how many sequences have been removed at each step, filtering, denoising, merging, and chimera-removal.
 
 ## Assign taxonomy:
 
@@ -246,9 +246,8 @@ qiime tools export --input-path asv_tax_vsearch.qza --output-path asv_tax_dir
 
 Import .tsv OTU table and reformat so that column names are sample names. Compiled count information with taxonomy assignments. See script: compile_counts_tax.r
 
-```
 
-# Compile taxonomy and count tables:
+## Compile taxonomy and count tables:
 
 Output .tsv files can be compiled in various programs. Below is an R script.
 
