@@ -316,5 +316,5 @@ qiime_2_ll_quick_viewer --filename stats-dada2.qzv
 ```
 
 
-### Last updated Sarah Hu 11-24-2018
+### Last updated Sarah Hu 12-12-2018
 
