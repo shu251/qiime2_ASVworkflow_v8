@@ -1,6 +1,6 @@
-#QIIME2 workflow - determining Amplicon Sequence Variants  
+# QIIME2 workflow - determining Amplicon Sequence Variants  
 
-**Updated 11/24/2018 - Sarah Hu**
+**Updated 12/12/2018 - Sarah Hu**
 
 This protocol is specific to analyzing microbial eukaryotic diversity by way of 18S rRNA gene tag sequencing. Here, we use [V4 Stoeck et al. 2010 primers](https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1365-294X.2009.04480.x). The product is an approximately 400 bp region. [more](https://onlinelibrary.wiley.com/doi/full/10.1111/jeu.12217). Workflow below uses version 8 of QIIME 2. 
 
@@ -246,6 +246,14 @@ qiime tools export --input-path asv_tax_vsearch.qza --output-path asv_tax_dir
 
 Import .tsv OTU table and reformat so that column names are sample names. Compiled count information with taxonomy assignments. See script: compile_counts_tax.r
 
+## Generate representative sequences fasta file:
+
+After taxonomy assignment you may find that there are specific ASVs that you need to pull out and blast, align to another database, or compare with other sequences. Use the below command to create the fasta file. This command can also be used on above .qza files to generate fasta files for each step. This is useful for troubleshooting.
+
+```
+qiime tools export --input-path rep-seqs.qza --output-path export_dir
+# This command will automatically detect the need to create a .fasta file. This will be stored in /export_dir
+```
 
 ## Compile taxonomy and count tables:
 
